@@ -2,7 +2,8 @@
 // take input from the user
 const lowerNumber = document.getElementById("lowerNumber");
 const higherNumber = document.getElementById("higherNumber");
-const knappen = document.getElementById("knappen");
+const button = document.getElementById("button");
+const clear = document.getElementById("clear");
 const primtallEl = document.getElementById("primtall");
 function readInputLow() {
   return lowerNumber.value;
@@ -11,7 +12,7 @@ function readInputHigh() {
   return higherNumber.value;
 }
 // looping from lowerNumber to higherNumber
-knappen.addEventListener("click", () => {
+button.addEventListener("click", () => {
   for (let i = readInputLow(); i <= readInputHigh(); i++) {
     let flag = 0;
 
@@ -25,8 +26,12 @@ knappen.addEventListener("click", () => {
 
     // if number greater than 1 and not divisible by other numbers
     if (i > 1 && flag == 0) {
-      primtallEl.textContent += `|-- ${i} --| `;
+      primtallEl.textContent += `[-${i}-]`;
       console.log([i]);
     }
   }
+});
+
+clear.addEventListener("click", () => {
+  primtallEl.textContent = "";
 });
